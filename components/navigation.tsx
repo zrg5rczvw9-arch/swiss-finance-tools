@@ -6,11 +6,12 @@ import Link from 'next/link'
 
 const menuItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
-  { label: 'Millionaire Calculator', href: '#' },
+  { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
   { label: 'Compound Interest Calculator', href: '#' },
   { label: 'Financial Knowledge', href: '#knowledge' },
   { label: 'About', href: '#about' },
 ]
+  
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)

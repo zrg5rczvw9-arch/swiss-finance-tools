@@ -19,17 +19,19 @@ const calculators = [
     stats: { label: 'Avg Return', value: '7.5%' },
   },
   {
-    id: 'millionaire',
-    title: 'Millionaire Goal Calculator',
-    description: 'Map your path to financial independence. Discover exactly how long it takes to reach your million.',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 6v12M8 10h8M8 14h8" strokeLinecap="round" />
-      </svg>
-    ),
-    stats: { label: 'Goal', value: 'CHF 1M' },
-  },
+  id: 'millionaire',
+  title: 'Millionaire Goal Calculator',
+  description:
+    'Find out how long it takes to reach your financial goal with regular investing and compound growth.',
+  icon: (
+    <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <path d="M12 3v18" />
+      <path d="M6 9h12" />
+      <path d="M6 15h12" />
+    </svg>
+  ),
+  stats: { label: 'Target', value: '1M+' },
+},
   {
     id: 'compound',
     title: 'Compound Interest Calculator',
@@ -99,7 +101,13 @@ export function CalculatorsSection() {
           {calculators.map((calc, index) => (
   <Link
     key={calc.id}
-    href={calc.id === 'etf' ? '/etf-calculator' : '#'}
+    href={
+  calc.id === 'etf'
+    ? '/etf-calculator'
+    : calc.id === 'millionaire'
+    ? '/millionaire-calculator'
+    : '#'
+}
   >
     <motion.div
               key={calc.id}

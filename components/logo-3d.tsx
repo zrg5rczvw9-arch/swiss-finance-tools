@@ -216,10 +216,13 @@ export function Logo3D() {
 
     resize()
 
-    window.addEventListener('resize', resize)
-    window.addEventListener('mousemove', handleMouseMove)
+requestAnimationFrame(() => {
+  resize()
+})
 
-    draw()
+window.addEventListener('resize', resize)
+
+draw()
 
 
 return () => {
