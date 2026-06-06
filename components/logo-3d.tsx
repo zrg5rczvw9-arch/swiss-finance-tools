@@ -221,12 +221,13 @@ requestAnimationFrame(() => {
 })
 
 window.addEventListener('resize', resize)
+window.addEventListener('scroll', resize)
 
 draw()
 
-
 return () => {
   window.removeEventListener('resize', resize)
+  window.removeEventListener('scroll', resize)
   window.removeEventListener('mousemove', handleMouseMove)
   cancelAnimationFrame(animationId)
 }

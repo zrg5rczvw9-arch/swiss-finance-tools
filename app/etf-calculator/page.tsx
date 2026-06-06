@@ -220,10 +220,10 @@ export default function ETFCalculator() {
                 />
 
                 <Tooltip
-                  formatter={(value: number) =>
-                    `${currency ? currency + " " : ""}${value.toLocaleString("de-CH")}`
-                  }
-                />
+  formatter={(value) =>
+    `${currency ? currency + " " : ""}${Number(value).toLocaleString("de-CH")}`
+  }
+/>
 
                 <Line
                   name="Portfolio Value"

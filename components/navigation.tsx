@@ -8,8 +8,8 @@ const menuItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
   { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
   { label: 'Compound Interest Calculator', href: '#' },
-  { label: 'Financial Knowledge', href: '#knowledge' },
-  { label: 'About', href: '#about' },
+  { label: 'Financial Knowledge', href: '/financial-knowledge' },
+  { label: 'About', href: '/about' },
 ]
   
 
@@ -130,12 +130,18 @@ export function Navigation() {
                       transition={{ delay: index * 0.1 }}
                     >
                       <Link
-                        href={item.href}
-                        onClick={() => setIsOpen(false)}
-                        className="block py-4 px-4 text-lg text-primary hover:text-accent hover:bg-muted rounded-lg transition-all font-medium"
-                      >
-                        {item.label}
-                      </Link>
+  href={item.href}
+  onClick={() => setIsOpen(false)}
+  className="flex items-center justify-between py-4 px-4 text-lg text-primary hover:text-accent hover:bg-muted rounded-lg transition-all font-medium"
+>
+  <span>{item.label}</span>
+
+  {!['ETF Calculator', 'Millionaire Calculator', 'About', 'Financial Knowledge', ].includes(item.label) && (
+    <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
+      Coming Soon
+    </span>
+  )}
+</Link>
                     </motion.div>
                   ))}
                 </nav>

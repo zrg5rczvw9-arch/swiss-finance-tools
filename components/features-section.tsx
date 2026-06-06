@@ -5,8 +5,8 @@ import { useRef } from 'react'
 
 const features = [
   {
-    title: 'Swiss Precision',
-    description: 'Our calculators are built with the meticulous attention to detail that defines Swiss excellence.',
+    title: 'Free To Use',
+    description: 'Access powerful financial calculators anytime without subscriptions, hidden fees or account registration.',
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="10" />
@@ -15,8 +15,8 @@ const features = [
     ),
   },
   {
-    title: 'Bank-Level Security',
-    description: 'Your financial data is protected with enterprise-grade encryption and privacy standards.',
+    title: 'No Data Stored',
+    description: 'All calculations are performed directly in your browser. Your inputs and results are never stored or shared.',
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <rect x="3" y="11" width="18" height="11" rx="2" />
@@ -25,8 +25,8 @@ const features = [
     ),
   },
   {
-    title: 'Expert Research',
-    description: 'Built on years of financial research and validated by industry professionals.',
+    title: 'Swiss Precision',
+    description: 'Designed with Swiss attention to detail, focusing on accuracy, reliability and a clear user experience.',
     icon: (
       <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
@@ -66,30 +66,22 @@ export function FeaturesSection() {
             viewport={{ once: true }}
           >
             <span className="inline-block px-4 py-1.5 bg-accent/20 text-accent rounded-full text-sm font-medium mb-6">
-              Why Choose Us
+              Why Swiss Finance Tools
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-primary-foreground mb-6 text-balance">
-              Financial Excellence, Swiss Standards
+              Simple Tools. Better Financial Decisions.
             </h2>
             <p className="text-lg text-primary-foreground/70 leading-relaxed mb-8">
-              We combine centuries of Swiss banking tradition with modern technology to deliver financial tools that meet the highest standards of accuracy and reliability.
+              Built with Swiss precision to help you understand your finances, explore different scenarios and make more confident financial decisions.
             </p>
 
-            <div className="flex items-center gap-4">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div
-                    key={i}
-                    className="w-10 h-10 rounded-full bg-accent/20 border-2 border-primary flex items-center justify-center text-accent text-xs font-medium"
-                  >
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-primary-foreground/70 text-sm">
-                <span className="text-accent font-semibold">10,000+</span> satisfied users
-              </div>
-            </div>
+<div className="text-primary-foreground/70 text-sm">
+  
+   
+  Free financial tools for everyday decisions
+</div>
+            
+              
           </motion.div>
 
           <div className="space-y-6">

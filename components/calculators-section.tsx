@@ -8,7 +8,7 @@ const calculators = [
   {
     id: 'etf',
     title: 'ETF Savings Plan Calculator',
-    description: 'Plan your ETF investments with precision. Calculate expected returns, dividends, and portfolio growth over time.',
+    description: 'Plan your ETF strategy and see how regular investing can grow your wealth over time.',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M3 3v18h18" strokeLinecap="round" strokeLinejoin="round" />
@@ -16,13 +16,13 @@ const calculators = [
         <circle cx="20" cy="9" r="2" />
       </svg>
     ),
-    stats: { label: 'Avg Return', value: '7.5%' },
+    stats: { label: 'Strategy', value: 'Passive' },
   },
   {
   id: 'millionaire',
   title: 'Millionaire Goal Calculator',
   description:
-    'Find out how long it takes to reach your financial goal with regular investing and compound growth.',
+    'See how long it could take to reach your first million through investing.',
   icon: (
     <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M12 3v18" />
@@ -30,12 +30,12 @@ const calculators = [
       <path d="M6 15h12" />
     </svg>
   ),
-  stats: { label: 'Target', value: '1M+' },
+  stats: { label: 'Goal', value: 'Millionaire' },
 },
   {
     id: 'compound',
     title: 'Compound Interest Calculator',
-    description: 'Harness the power of compound interest. See how your investments grow exponentially over time.',
+    description: '',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2v20M2 12h20" strokeLinecap="round" />
@@ -43,24 +43,24 @@ const calculators = [
         <path d="M12 6a6 6 0 0 1 6 6" strokeLinecap="round" />
       </svg>
     ),
-    stats: { label: 'Growth', value: '∞' },
+    stats: { label: '', value: '' },
   },
   {
     id: 'fire',
     title: 'FIRE Calculator',
-    description: 'Plan your early retirement with precision. Calculate your Financial Independence, Retire Early number.',
+    description: '',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z" />
         <path d="M12 22v-6" strokeLinecap="round" />
       </svg>
     ),
-    stats: { label: 'Freedom', value: '25x' },
+    stats: { label: '', value: '' },
   },
   {
     id: 'pillar3a',
     title: 'Swiss Pillar 3a Calculator',
-    description: 'Optimize your Swiss retirement savings. Maximize tax benefits with smart Pillar 3a planning.',
+    description: '',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M3 21h18" strokeLinecap="round" />
@@ -69,7 +69,7 @@ const calculators = [
         <circle cx="12" cy="10" r="2" />
       </svg>
     ),
-    stats: { label: 'Tax Savings', value: 'Max' },
+    stats: { label: '', value: '' },
   },
 ]
 
@@ -87,13 +87,13 @@ export function CalculatorsSection() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent rounded-full text-sm font-medium mb-4">
-            Premium Tools
+            Wealth Building Tools
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-primary mb-4 text-balance">
-            Financial Calculators
+            Financial Planning Calculators
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional-grade calculators designed with Swiss precision for your wealth building journey.
+            Built with Swiss precision to help you plan, grow and understand your finances.
           </p>
         </motion.div>
 
@@ -129,6 +129,12 @@ export function CalculatorsSection() {
                 <h3 className="text-xl font-serif font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
                   {calc.title}
                 </h3>
+                
+                {!['etf', 'millionaire'].includes(calc.id) && (
+  <span className="inline-block px-2 py-1 mb-3 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
+    Coming Soon
+  </span>
+)}
 
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                   {calc.description}
