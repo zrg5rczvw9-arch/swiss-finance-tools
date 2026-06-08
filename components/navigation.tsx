@@ -7,7 +7,6 @@ import Link from 'next/link'
 const menuItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
   { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
-  { label: 'Compound Interest Calculator', href: '#' },
   { label: 'Financial Knowledge', href: '/financial-knowledge' },
   { label: 'About', href: '/about' },
 ]

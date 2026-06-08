@@ -57,10 +57,8 @@ export function Footer() {
     name: 'Millionaire Calculator',
     href: '/millionaire-calculator',
   },
-  {
-    name: 'Compound Interest Calculator',
-    href: '#',
-  },
+ 
+  
   {
     name: 'FIRE Calculator',
     href: '#',

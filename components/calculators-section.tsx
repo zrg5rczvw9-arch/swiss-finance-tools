@@ -32,19 +32,7 @@ const calculators = [
   ),
   stats: { label: 'Goal', value: 'Millionaire' },
 },
-  {
-    id: 'compound',
-    title: 'Compound Interest Calculator',
-    description: '',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 2v20M2 12h20" strokeLinecap="round" />
-        <path d="M12 2a10 10 0 0 1 10 10" strokeLinecap="round" />
-        <path d="M12 6a6 6 0 0 1 6 6" strokeLinecap="round" />
-      </svg>
-    ),
-    stats: { label: '', value: '' },
-  },
+  
   {
     id: 'fire',
     title: 'FIRE Calculator',
