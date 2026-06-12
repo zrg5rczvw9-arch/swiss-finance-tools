@@ -7,6 +7,7 @@ import Link from 'next/link'
 const menuItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
   { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
+  { label: 'Retirement Calculator', href: '/retirement-calculator' },
   { label: 'Financial Knowledge', href: '/financial-knowledge' },
   { label: 'About', href: '/about' },
 ]
@@ -135,7 +136,13 @@ export function Navigation() {
 >
   <span>{item.label}</span>
 
-  {!['ETF Calculator', 'Millionaire Calculator', 'About', 'Financial Knowledge', ].includes(item.label) && (
+  {![
+  'ETF Calculator',
+  'Millionaire Calculator',
+  'Retirement Calculator',
+  'About',
+  'Financial Knowledge',
+].includes(item.label) && (
     <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
       Coming Soon
     </span>

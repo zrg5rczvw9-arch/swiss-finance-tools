@@ -33,6 +33,29 @@ const calculators = [
   stats: { label: 'Goal', value: 'Millionaire' },
 },
   
+{
+  id: 'retirement',
+  title: 'Retirement Calculator',
+  description:
+    'Estimate how much wealth you could build before retirement and track your progress over time.',
+  icon: (
+    <svg
+      viewBox="0 0 24 24"
+      className="w-8 h-8"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+    >
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 8v4l3 2" strokeLinecap="round" />
+    </svg>
+  ),
+  stats: {
+    label: 'Focus',
+    value: 'Retirement',
+  },
+},
+
   {
     id: 'fire',
     title: 'FIRE Calculator',
@@ -89,11 +112,13 @@ export function CalculatorsSection() {
           {calculators.map((calc, index) => (
   <Link
     key={calc.id}
-    href={
+   href={
   calc.id === 'etf'
     ? '/etf-calculator'
     : calc.id === 'millionaire'
     ? '/millionaire-calculator'
+    : calc.id === 'retirement'
+    ? '/retirement-calculator'
     : '#'
 }
   >
@@ -118,7 +143,7 @@ export function CalculatorsSection() {
                   {calc.title}
                 </h3>
                 
-                {!['etf', 'millionaire'].includes(calc.id) && (
+                {!['etf', 'millionaire', 'retirement'].includes(calc.id) && (
   <span className="inline-block px-2 py-1 mb-3 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
     Coming Soon
   </span>

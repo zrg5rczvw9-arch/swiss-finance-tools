@@ -235,10 +235,10 @@ export default function MillionaireCalculator() {
                 />
 
                 <Tooltip
-                  formatter={(value: number) =>
-                    `${currency ? currency + " " : ""}${value.toLocaleString("de-CH")}`
-                  }
-                />
+  formatter={(value: any) =>
+    `${currency ? currency + " " : ""}${Number(value).toLocaleString("de-CH")}`
+  }
+/>
 
                 <Line
                   name="Portfolio Value"

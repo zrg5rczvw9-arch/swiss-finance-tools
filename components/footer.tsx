@@ -58,7 +58,11 @@ export function Footer() {
     href: '/millionaire-calculator',
   },
  
-  
+  {
+  name: 'Retirement Calculator',
+  href: '/retirement-calculator',
+},
+
   {
     name: 'FIRE Calculator',
     href: '#',

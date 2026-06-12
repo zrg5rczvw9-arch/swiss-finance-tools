@@ -12,12 +12,18 @@ import {
 } from "recharts";
 import { Navigation } from "@/components/navigation";
 
-export default function ETFCalculator() {
+export default function RetirementCalculator() {
   const [kapital, setKapital] = useState(10000);
   const [zins, setZins] = useState(7);
-  const [jahre, setJahre] = useState(20);
+  const [currentAge, setCurrentAge] = useState(25);
+const [retirementAge, setRetirementAge] = useState(65);
   const [monatlich, setMonatlich] = useState(500);
   const [currency, setCurrency] = useState("CHF");
+
+  const jahre = Math.max(
+  0,
+  retirementAge - currentAge
+);
 
   const monatlicherZins =
   zins > 0
@@ -42,6 +48,8 @@ export default function ETFCalculator() {
   const gewinn = endkapital - eingezahlt;
 
   const chartData = [];
+
+ 
 
   for (let jahr = 0; jahr <= jahre; jahr++) {
     const monateBisJetzt = jahr * 12;
@@ -72,12 +80,13 @@ export default function ETFCalculator() {
       sparplanBisJetzt;
 
     chartData.push({
-      jahr,
-      vermoegen: Math.round(vermoegen),
-      eingezahlt:
-        kapital +
-        monatlich * monateBisJetzt,
-    });
+  jahr,
+  age: currentAge + jahr,
+  vermoegen: Math.round(vermoegen),
+  eingezahlt:
+    kapital +
+    monatlich * monateBisJetzt,
+});
   }
 
   return (
@@ -86,11 +95,11 @@ export default function ETFCalculator() {
 
       <main className="max-w-4xl mx-auto px-6 py-24">
         <h1 className="text-4xl font-bold mb-8 text-primary">
-          ETF Savings Plan Calculator
+          Retirement Calculator
         </h1>
 
         <p className="mb-8 text-muted-foreground">
-          Monthly compounding based on the effective annual return.
+          Estimate how much wealth you could build before retirement and track your progress over time.
         </p>
         <div className="mb-8">
   <label className="block mb-3 font-medium">
@@ -155,35 +164,54 @@ export default function ETFCalculator() {
           </div>
 
           <div>
-            <label className="block mb-2 font-medium">
-              Investment Period (Years)
-            </label>
+  <label className="block mb-2 font-medium">
+    Current Age
+  </label>
 
-            <input
-              type="number"
-              min="0"
-              max="100"
-              value={jahre}
-              onChange={(e) =>
-                setJahre(
-                  Math.min(
-                    100,
-                    Math.max(0, Number(e.target.value))
-                  )
-                )
-              }
-              className="w-full border border-border rounded-lg p-3"
-            />
+  <input
+  type="number"
+  min="0"
+  max="100"
+  value={currentAge}
+  onChange={(e) =>
+    setCurrentAge(
+      Math.min(
+        100,
+        Math.max(0, Number(e.target.value))
+      )
+    )
+  }
+  className="w-full border border-border rounded-lg p-3"
+/>
+  
+</div>
 
-            <p className="text-sm text-muted-foreground mt-1">
-              Maximum 100 years
-            </p>
-          </div>
-        </div>
+<div>
+  <label className="block mb-2 font-medium">
+    Retirement Age
+  </label>
+
+  <input
+  
+  type="number"
+  min="1"
+  max="100"
+  value={retirementAge}
+  onChange={(e) => {
+    const value = Number(e.target.value);
+
+    if (value <= 100) {
+      setRetirementAge(value);
+    }
+  }}
+  className="w-full border border-border rounded-lg p-3"
+/>
+</div>
+</div>
 
                 <div className="rounded-2xl border border-border bg-card p-8 shadow-lg">
           <h2 className="text-3xl font-bold mb-6 text-primary">
-            Final Portfolio Value:{" "}
+            Retirement Capital:{" "}
             {currency && `${currency} `}
 {endkapital.toLocaleString("de-CH", {
   maximumFractionDigits: 0,
@@ -199,17 +227,21 @@ export default function ETFCalculator() {
           </p>
 
           <p className="text-lg">
-            Total Profit:{" "}
-            {currency && `${currency} `}
-{gewinn.toLocaleString("de-CH", {
-  maximumFractionDigits: 0,
-})}
-          </p>
+  Investment Growth:{" "}
+  {currency && `${currency} `}
+  {gewinn.toLocaleString("de-CH", {
+    maximumFractionDigits: 0,
+  })}
+</p>
+
+<p className="text-lg mt-3">
+  Years Until Retirement: {jahre}
+</p>
         </div>
 
         <div className="mt-10 rounded-2xl border border-border bg-card p-8 shadow-lg">
           <h2 className="text-2xl font-bold mb-6 text-primary">
-            Portfolio Growth
+            Retirement Projection
           </h2>
 
           <div style={{ width: "100%", height: 400 }}>
@@ -217,7 +249,8 @@ export default function ETFCalculator() {
               <LineChart data={chartData}>
                 <Legend />
 
-                <XAxis dataKey="jahr" />
+                <XAxis dataKey="age" />
+
 
                 <YAxis
                   tickFormatter={(value) =>
@@ -255,13 +288,13 @@ export default function ETFCalculator() {
 
         <div className="mt-10 rounded-2xl border border-border bg-card p-8 shadow-lg overflow-x-auto">
           <h2 className="text-2xl font-bold mb-6 text-primary">
-            Yearly Overview
+            Retirement Timeline
           </h2>
 
           <table className="w-full">
             <thead>
               <tr className="border-b">
-                <th className="text-left py-3">Year</th>
+                <th className="text-left py-3">Age</th>
                 <th className="text-left py-3">Contributions</th>
                 <th className="text-left py-3">Portfolio Value</th>
               </tr>
@@ -270,11 +303,11 @@ export default function ETFCalculator() {
             <tbody>
               {chartData.map((row) => (
                 <tr
-                  key={row.jahr}
+                  key={currentAge + row.jahr}
                   className="border-b border-border"
                 >
                   <td className="py-2">
-                    {row.jahr}
+                    {currentAge + row.jahr}
                   </td>
 
                   <td className="py-2">
