@@ -8,10 +8,11 @@ const menuItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
   { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
   { label: 'Retirement Calculator', href: '/retirement-calculator' },
+  { label: 'FIRE Calculator', href: '/fire-calculator' },
+  { label: 'Swiss Pillar 3a Calculator', href: '#' },
   { label: 'Financial Knowledge', href: '/financial-knowledge' },
   { label: 'About', href: '/about' },
 ]
-  
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -136,17 +137,17 @@ export function Navigation() {
 >
   <span>{item.label}</span>
 
-  {![
-  'ETF Calculator',
-  'Millionaire Calculator',
-  'Retirement Calculator',
-  'About',
-  'Financial Knowledge',
-].includes(item.label) && (
+ {item.label === 'Swiss Pillar 3a Calculator' && (
+  <div className="flex gap-2">
+    <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+  🇨🇭 Swiss Finance
+</span>
+
     <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
       Coming Soon
     </span>
-  )}
+  </div>
+)}
 </Link>
                     </motion.div>
                   ))}

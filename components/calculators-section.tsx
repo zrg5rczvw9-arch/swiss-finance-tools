@@ -59,14 +59,14 @@ const calculators = [
   {
     id: 'fire',
     title: 'FIRE Calculator',
-    description: '',
+    description: 'Estimate how long it takes to reach financial independence using the 4% rule',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 2c0 4-4 6-4 10a4 4 0 0 0 8 0c0-4-4-6-4-10z" />
         <path d="M12 22v-6" strokeLinecap="round" />
       </svg>
     ),
-    stats: { label: '', value: '' },
+    stats: { label: 'Goal', value: 'Fire' },
   },
   {
     id: 'pillar3a',
@@ -119,6 +119,8 @@ export function CalculatorsSection() {
     ? '/millionaire-calculator'
     : calc.id === 'retirement'
     ? '/retirement-calculator'
+    : calc.id === 'fire'
+    ? '/fire-calculator'
     : '#'
 }
   >
@@ -143,7 +145,7 @@ export function CalculatorsSection() {
                   {calc.title}
                 </h3>
                 
-                {!['etf', 'millionaire', 'retirement'].includes(calc.id) && (
+                {!['etf', 'millionaire', 'retirement', 'fire'].includes(calc.id) && (
   <span className="inline-block px-2 py-1 mb-3 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
     Coming Soon
   </span>

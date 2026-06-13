@@ -65,10 +65,10 @@ export function Footer() {
 
   {
     name: 'FIRE Calculator',
-    href: '#',
+    href: '/fire-calculator',
   },
   {
-    name: 'Swiss Pillar 3a Calculator',
+    name: 'Swiss Pillar 3aS Calculator',
     href: '#',
   },
 ].map((item) => (
@@ -130,22 +130,16 @@ export function Footer() {
     </Link>
   </li>
 
-  {['Privacy Policy'].map((item) => (
-    <li key={item}>
-      <div className="flex items-center justify-between">
-        <Link
-          href="#"
-          className="text-muted-foreground hover:text-accent transition-colors text-sm"
-        >
-          {item}
-        </Link>
+  <li>
+  <Link
+    href="/privacy-policy"
+    className="text-muted-foreground hover:text-accent transition-colors text-sm"
+  >
+    Privacy Policy
+  </Link>
+</li>
 
-        <span className="px-1.5 py-0.5 text-[9px] font-medium rounded-full bg-yellow-500/10 text-yellow-600">
-          Soon
-        </span>
-      </div>
-    </li>
-  ))}
+
 </ul>
           </motion.div>
         </div>
