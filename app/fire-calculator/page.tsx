@@ -170,6 +170,8 @@ const ziel = annualExpenses * 25;
         </div>
 
         <div className="rounded-2xl border border-border bg-card p-8 shadow-lg">
+
+        
           <h2 className="text-3xl font-bold mb-6 text-primary">
             Financial Independence In
           </h2>
@@ -178,37 +180,40 @@ const ziel = annualExpenses * 25;
             {anzeigeJahre} Years
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-  <div>
-    <p className="text-sm text-muted-foreground">
-      FIRE Number
-    </p>
-
-    <p className="text-xl font-semibold">
-      {currency && `${currency} `}
-      {ziel.toLocaleString("de-CH")}
-    </p>
-  </div>
-
-  <div>
-    <p className="text-sm text-muted-foreground">
-      Total Contributions
-    </p>
-
-    <p className="text-xl font-semibold">
+       <div className="space-y-4">
+  <p className="text-lg">
+    <span className="text-muted-foreground">
+      Total Contributions:
+    </span>{" "}
+    <span className="font-semibold">
       {currency && `${currency} `}
       {eingezahlt.toLocaleString("de-CH")}
-    </p>
-  </div>
+    </span>
+  </p>
 
-  <div>
-    <p className="text-sm text-muted-foreground">
-      Investment Growth
-    </p>
-
-    <p className="text-xl font-semibold text-green-600">
+  <p className="text-lg">
+    <span className="text-muted-foreground">
+      Investment Growth:
+    </span>{" "}
+    <span className="font-semibold text-green-600">
       {currency && `${currency} `}
       {gewinn.toLocaleString("de-CH")}
+    </span>
+  </p>
+
+  <div>
+    <p className="text-lg">
+      <span className="text-muted-foreground">
+        FIRE Target:
+      </span>{" "}
+      <span className="font-semibold">
+        {currency && `${currency} `}
+        {ziel.toLocaleString("de-CH")}
+      </span>
+    </p>
+
+    <p className="text-xs text-muted-foreground mt-1">
+      25× annual expenses
     </p>
   </div>
 </div>

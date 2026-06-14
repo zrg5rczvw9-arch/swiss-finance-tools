@@ -68,8 +68,8 @@ export function Footer() {
     href: '/fire-calculator',
   },
   {
-    name: 'Swiss Pillar 3aS Calculator',
-    href: '#',
+    name: 'Swiss Pillar 3a Calculator',
+    href: '/swiss-pillars-3a-calculator',
   },
 ].map((item) => (
   <li key={item.name}>
@@ -81,11 +81,8 @@ export function Footer() {
         {item.name}
       </Link>
 
-      {item.href === '#' && (
-        <span className="px-1.5 py-0.5 text-[9px] font-medium rounded-full bg-yellow-500/10 text-yellow-600">
-          Soon
-        </span>
-      )}
+    
+      
     </div>
   </li>
 ))}

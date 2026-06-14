@@ -4,14 +4,19 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 
-const menuItems = [
+const calculatorItems = [
   { label: 'ETF Calculator', href: '/etf-calculator' },
   { label: 'Millionaire Calculator', href: '/millionaire-calculator' },
   { label: 'Retirement Calculator', href: '/retirement-calculator' },
   { label: 'FIRE Calculator', href: '/fire-calculator' },
-  { label: 'Swiss Pillar 3a Calculator', href: '#' },
+  { label: 'Swiss Pillar 3a Calculator', href: '/swiss-pillars-3a-calculator' },
+]
+
+const informationItems = [
   { label: 'Financial Knowledge', href: '/financial-knowledge' },
   { label: 'About', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Privacy Policy', href: '/privacy-policy' },
 ]
 
 export function Navigation() {
@@ -94,7 +99,7 @@ export function Navigation() {
                 damping: 25,
                 stiffness: 200,
               }}
-              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-background z-50 shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-full max-w-md bg-background z-50 shadow-2xl overflow-y-auto"
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-12">
@@ -123,7 +128,12 @@ export function Navigation() {
                 </div>
 
                 <nav className="space-y-1">
-                  {menuItems.map((item, index) => (
+
+  <div className="px-4 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+    Calculators
+  </div>
+
+  {calculatorItems.map((item, index) => (
                     <motion.div
                       key={item.label}
                       initial={{ opacity: 0, x: 20 }}
@@ -143,14 +153,32 @@ export function Navigation() {
   🇨🇭 Swiss Finance
 </span>
 
-    <span className="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
-      Coming Soon
-    </span>
   </div>
 )}
 </Link>
                     </motion.div>
                   ))}
+
+                  <div className="px-4 pt-6 pb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+  Information
+</div>
+
+{informationItems.map((item, index) => (
+  <motion.div
+    key={item.label}
+    initial={{ opacity: 0, x: 20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: index * 0.1 }}
+  >
+    <Link
+      href={item.href}
+      onClick={() => setIsOpen(false)}
+      className="flex items-center justify-between py-4 px-4 text-lg text-primary hover:text-accent hover:bg-muted rounded-lg transition-all font-medium"
+    >
+      <span>{item.label}</span>
+    </Link>
+  </motion.div>
+))}
                 </nav>
               </div>
             </motion.div>

@@ -71,7 +71,7 @@ const calculators = [
   {
     id: 'pillar3a',
     title: 'Swiss Pillar 3a Calculator',
-    description: '',
+    description: 'Track the growth of your Swiss Pillar 3a with annual contributions and compound returns.',
     icon: (
       <svg viewBox="0 0 24 24" className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M3 21h18" strokeLinecap="round" />
@@ -80,9 +80,11 @@ const calculators = [
         <circle cx="12" cy="10" r="2" />
       </svg>
     ),
-    stats: { label: '', value: '' },
+    stats: { label: 'Swiss', value: 'Pillar 3a' },
   },
 ]
+
+
 
 export function CalculatorsSection() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
@@ -141,16 +143,15 @@ export function CalculatorsSection() {
                   {calc.icon}
                 </div>
 
-                <h3 className="text-xl font-serif font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
-                  {calc.title}
-                </h3>
-                
-                {!['etf', 'millionaire', 'retirement', 'fire'].includes(calc.id) && (
-  <span className="inline-block px-2 py-1 mb-3 text-xs font-medium rounded-full bg-yellow-500/10 text-yellow-600">
-    Coming Soon
+              {calc.id === 'pillar3a' && (
+  <span className="absolute top-0 right-0 px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+    🇨🇭 Swiss Finance
   </span>
 )}
 
+<h3 className="text-xl font-serif font-semibold text-primary mb-3 group-hover:text-accent transition-colors">
+  {calc.title}
+</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-6">
                   {calc.description}
                 </p>

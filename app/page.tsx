@@ -5,6 +5,7 @@ import { Navigation } from '@/components/navigation'
 import { HeroSection } from '@/components/hero-section'
 import { StatsSection } from '@/components/stats-section'
 import { CalculatorsSection } from '@/components/calculators-section'
+import { FinancialKnowledgeSection } from '@/components/financial-knowledge-section'
 import { FeaturesSection } from '@/components/features-section'
 import { Footer } from '@/components/footer'
 
@@ -27,6 +28,7 @@ export default function Home() {
       <HeroSection />
       <StatsSection />
       <CalculatorsSection />
+      <FinancialKnowledgeSection />
       <FeaturesSection />
       <Footer />
     </main>
